@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorarioXML", "HorarioXML\HorarioXML.csproj", "{AFB20894-5461-43EC-8BBA-05519F04DEED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFB20894-5461-43EC-8BBA-05519F04DEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB20894-5461-43EC-8BBA-05519F04DEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB20894-5461-43EC-8BBA-05519F04DEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB20894-5461-43EC-8BBA-05519F04DEED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58279132-2AAC-4060-8CB7-AF5FF5D2EAE4}
+	EndGlobalSection
+EndGlobal
