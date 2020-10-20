@@ -16,5 +16,15 @@ namespace HorarioXML
         {
             InitializeComponent();
         }
+
+        private void lblDia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbDia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
