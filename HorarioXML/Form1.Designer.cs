@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -56,10 +57,12 @@
             this.Miercoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ep = new System.Windows.Forms.ErrorProvider(this.components);
             this.gpbHorario.SuspendLayout();
             this.gpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbHorario
@@ -256,6 +259,7 @@
             this.btnAniadir.Size = new System.Drawing.Size(40, 40);
             this.btnAniadir.TabIndex = 7;
             this.btnAniadir.UseVisualStyleBackColor = false;
+            this.btnAniadir.Click += new System.EventHandler(this.btnAniadir_Click);
             // 
             // btnQuitar
             // 
@@ -271,6 +275,7 @@
             this.btnQuitar.Size = new System.Drawing.Size(40, 40);
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // dsDatos
             // 
@@ -364,6 +369,10 @@
             this.Viernes.ReadOnly = true;
             this.Viernes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // ep
+            // 
+            this.ep.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +398,7 @@
             this.gpbDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -419,6 +429,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Miercoles;
         private System.Windows.Forms.DataGridViewTextBoxColumn Jueves;
         private System.Windows.Forms.DataGridViewTextBoxColumn Viernes;
+        private System.Windows.Forms.ErrorProvider ep;
     }
 }
 
