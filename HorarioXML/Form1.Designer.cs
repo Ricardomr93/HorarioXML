@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gpbHorario = new System.Windows.Forms.GroupBox();
             this.cmbbDia = new System.Windows.Forms.ComboBox();
@@ -50,19 +51,14 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.dsDatos = new System.Data.DataSet();
             this.ofdAbrir = new System.Windows.Forms.OpenFileDialog();
-            this.dgHorario = new System.Windows.Forms.DataGridView();
-            this.cHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Martes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Miercoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ep = new System.Windows.Forms.ErrorProvider(this.components);
+            this.sfdGuardar = new System.Windows.Forms.SaveFileDialog();
+            this.dgHorario = new System.Windows.Forms.DataGridView();
             this.gpbHorario.SuspendLayout();
             this.gpbDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDatos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbHorario
@@ -136,26 +132,34 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(206)))), ((int)(((byte)(212)))));
-            this.btnGuardar.Enabled = false;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(96)))), ((int)(((byte)(139)))));
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(35, 430);
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGuardar.Location = new System.Drawing.Point(36, 430);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(200, 39);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "GUARDAR HORARIO";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCargar
             // 
-            this.btnCargar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(206)))), ((int)(((byte)(212)))));
+            this.btnCargar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(96)))), ((int)(((byte)(139)))));
+            this.btnCargar.FlatAppearance.BorderSize = 0;
+            this.btnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCargar.Location = new System.Drawing.Point(35, 486);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(200, 39);
             this.btnCargar.TabIndex = 3;
             this.btnCargar.Text = "CARGAR HORARIO";
             this.btnCargar.UseVisualStyleBackColor = false;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // gpbDatos
             // 
@@ -286,6 +290,14 @@
             this.ofdAbrir.FileName = "openFileDialog1";
             this.ofdAbrir.Filter = "Documentos XML (*.xml) | *.xml";
             // 
+            // ep
+            // 
+            this.ep.ContainerControl = this;
+            // 
+            // sfdGuardar
+            // 
+            this.sfdGuardar.Filter = "Documentos XML (*.xml) | *.xml";
+            // 
             // dgHorario
             // 
             this.dgHorario.AllowUserToAddRows = false;
@@ -295,83 +307,36 @@
             this.dgHorario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgHorario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(206)))), ((int)(((byte)(212)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(96)))), ((int)(((byte)(139)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(62)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgHorario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgHorario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cHora,
-            this.Lunes,
-            this.Martes,
-            this.Miercoles,
-            this.Jueves,
-            this.Viernes});
+            this.dgHorario.EnableHeadersVisualStyles = false;
             this.dgHorario.Location = new System.Drawing.Point(19, 12);
             this.dgHorario.MultiSelect = false;
             this.dgHorario.Name = "dgHorario";
             this.dgHorario.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(96)))), ((int)(((byte)(139)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgHorario.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(206)))), ((int)(((byte)(212)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(96)))), ((int)(((byte)(139)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgHorario.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgHorario.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgHorario.RowTemplate.ReadOnly = true;
             this.dgHorario.Size = new System.Drawing.Size(728, 273);
             this.dgHorario.TabIndex = 8;
-            // 
-            // cHora
-            // 
-            this.cHora.HeaderText = "HORA";
-            this.cHora.Name = "cHora";
-            this.cHora.ReadOnly = true;
-            this.cHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Lunes
-            // 
-            this.Lunes.HeaderText = "LUNES";
-            this.Lunes.Name = "Lunes";
-            this.Lunes.ReadOnly = true;
-            this.Lunes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Martes
-            // 
-            this.Martes.HeaderText = "MARTES";
-            this.Martes.Name = "Martes";
-            this.Martes.ReadOnly = true;
-            this.Martes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Miercoles
-            // 
-            this.Miercoles.HeaderText = "MIERCOLES";
-            this.Miercoles.Name = "Miercoles";
-            this.Miercoles.ReadOnly = true;
-            this.Miercoles.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Jueves
-            // 
-            this.Jueves.HeaderText = "JUEVES";
-            this.Jueves.Name = "Jueves";
-            this.Jueves.ReadOnly = true;
-            this.Jueves.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Viernes
-            // 
-            this.Viernes.HeaderText = "VIERNES";
-            this.Viernes.Name = "Viernes";
-            this.Viernes.ReadOnly = true;
-            this.Viernes.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ep
-            // 
-            this.ep.ContainerControl = this;
+            this.dgHorario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgHorario_CellClick);
             // 
             // Form1
             // 
@@ -397,8 +362,8 @@
             this.gpbDatos.ResumeLayout(false);
             this.gpbDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsDatos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHorario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,14 +387,9 @@
         private System.Windows.Forms.Button btnAniadir;
         private System.Data.DataSet dsDatos;
         private System.Windows.Forms.OpenFileDialog ofdAbrir;
-        private System.Windows.Forms.DataGridView dgHorario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lunes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Martes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Miercoles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Jueves;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Viernes;
         private System.Windows.Forms.ErrorProvider ep;
+        private System.Windows.Forms.SaveFileDialog sfdGuardar;
+        private System.Windows.Forms.DataGridView dgHorario;
     }
 }
 
